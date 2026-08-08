@@ -1,4 +1,4 @@
-# Sistema Inteligente Multimodal para el Análisis y Recuperación de Información mediante IA Generativa
+# Sistema Inteligente Multimodal para la Recuperación Semántica y el Análisis Automatizado de Documentos, Imágenes y Vídeos mediante IA Generativa y Bases Vectoriales
 
 ## Descripción
 
