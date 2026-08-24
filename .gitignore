@@ -3,3 +3,4 @@ data/documents/
 *.sqlite3
 *.pdf
 *.vs
+*.pyc
