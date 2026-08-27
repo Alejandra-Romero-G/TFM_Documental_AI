@@ -1,0 +1,5 @@
+﻿file_name,relative_path,size_bytes,file_sha256,text_sha256,pages,characters,average_characters_per_page,likely_scanned,extraction_status,error,duplicate_type,duplicate_of,canonical_document_id,file_hash_repetitions,text_hash_repetitions
+000000024_IOSHA_Poster_-_Smaller_File_Size.pdf,data\documents\osha\000000024_IOSHA_Poster_-_Smaller_File_Size.pdf,2163218,c521432112003d918c223e24bd0c51da3ea909df0ce3c92685e1c611f60dc2af,,1,0,0.0,True,no_text,,,,070919b15e461b5f,2,0
+000000024_PR_OSHA.pdf,data\documents\osha\000000024_PR_OSHA.pdf,9232658,5cd78624609b0a5f919579c3c7c3a67fdd0086456cc78740cf0c8c100f572e57,,1,0,0.0,True,no_text,,,,d8d701674f768873,2,0
+000000477_IOSHA_Poster_-_Smaller_File_Size.pdf,data\documents\osha\000000477_IOSHA_Poster_-_Smaller_File_Size.pdf,2163218,c521432112003d918c223e24bd0c51da3ea909df0ce3c92685e1c611f60dc2af,,1,0,0.0,True,no_text,,exact,000000024_IOSHA_Poster_-_Smaller_File_Size.pdf,070919b15e461b5f,2,0
+000000477_PR_OSHA.pdf,data\documents\osha\000000477_PR_OSHA.pdf,9232658,5cd78624609b0a5f919579c3c7c3a67fdd0086456cc78740cf0c8c100f572e57,,1,0,0.0,True,no_text,,exact,000000024_PR_OSHA.pdf,d8d701674f768873,2,0
