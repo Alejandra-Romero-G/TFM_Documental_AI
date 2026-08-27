@@ -2,7 +2,11 @@ from src.retrieval.rag import retrieve_context
 from src.llm.llm import generate_response
 
 
-question = input("Pregunta: ")
+question = input("Pregunta: ").strip()
+
+if not question:
+    print("Debes introducir una pregunta.")
+    raise SystemExit
 
 
 results = retrieve_context(
@@ -10,27 +14,14 @@ results = retrieve_context(
     n_results=5
 )
 
-
-context_parts = []
-
-for result in results:
-
-    context_parts.append(
-        f"""
-Document: {result['file_name']}
-Chunk: {result['chunk']}
-
-{result['text']}
-"""
-    )
-
-
-context = "\n\n".join(context_parts)
+if not results:
+    print("No se encontraron documentos relevantes.")
+    raise SystemExit
 
 
 answer = generate_response(
     question,
-    context
+    results
 )
 
 
@@ -38,7 +29,6 @@ print()
 print("=" * 70)
 print("RESPUESTA")
 print("=" * 70)
-
 print(answer)
 
 
@@ -47,9 +37,8 @@ print("=" * 70)
 print("FUENTES")
 print("=" * 70)
 
-for result in results:
-
+for position, result in enumerate(results, start=1):
     print(
-        f"- {result['file_name']} "
-        f"(chunk {result['chunk']})"
+        f"{position}. {result.get('file_name', 'desconocido')} "
+        f"(chunk {result.get('chunk', 'desconocido')})"
     )

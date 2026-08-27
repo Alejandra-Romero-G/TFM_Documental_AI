@@ -1,27 +1,38 @@
-from src.retrieval.rag import retrieve_context
+from src.analysis.analyzer import analyze_documents
 
 
-query = input("Pregunta: ")
-
-results = retrieve_context(
-    query,
-    n_results=5
-)
-
-
-print()
-print("=" * 70)
-print("CONTEXTO PARA EL LLM")
-print("=" * 70)
+questions = [
+    "What should an employer do to protect workers from heat stress?",
+    "What should employers do during a hurricane?",
+    "How can employers protect temporary workers?",
+    "What are the responsibilities of employers regarding workplace safety?"
+]
 
 
-for i, result in enumerate(results):
+for question in questions:
 
-    print()
-    print(f"--- RESULTADO {i + 1} ---")
+    print("\n" + "=" * 80)
+    print("PREGUNTA")
+    print("=" * 80)
 
-    print("Documento:", result["file_name"])
-    print("Chunk:", result["chunk"])
+    print(question)
 
-    print()
-    print(result["text"])
+    result = analyze_documents(
+        question,
+        n_results=5
+    )
+
+    print("\n" + "-" * 80)
+    print("RESPUESTA")
+    print("-" * 80)
+
+    print(result["response"])
+
+    print("\n" + "-" * 80)
+    print("FUENTES")
+    print("-" * 80)
+
+    for i, source in enumerate(result["sources"], start=1):
+        print(
+            f"{i}. {source['file_name']}"
+        )

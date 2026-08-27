@@ -1,12 +1,22 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 
+# ============================================================
+# CONFIGURACIÓN DEL MODELO
+# ============================================================
+
 MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"
 
 
+# ============================================================
+# CARGAR MODELO
+# ============================================================
+
 print("Cargando modelo LLM...")
 
-tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+tokenizer = AutoTokenizer.from_pretrained(
+    MODEL_NAME
+)
 
 model = AutoModelForCausalLM.from_pretrained(
     MODEL_NAME
@@ -15,36 +25,65 @@ model = AutoModelForCausalLM.from_pretrained(
 print("Modelo LLM cargado.")
 
 
+# ============================================================
+# GENERAR RESPUESTA
+# ============================================================
+
 def generate_response(question, context):
     """
-    Genera una respuesta utilizando la pregunta y
-    el contexto recuperado desde los documentos.
+    Genera una respuesta utilizando únicamente
+    la información recuperada de los documentos.
     """
 
-    context_text = "\n\n".join(
-        [
+    # ========================================================
+    # CONSTRUIR CONTEXTO
+    # ========================================================
+
+    context_parts = []
+
+    max_chars_per_chunk = 3500
+
+    for item in context:
+
+        text = item["text"][:max_chars_per_chunk]
+
+        context_parts.append(
             f"Documento: {item['file_name']}\n"
-            f"Fragmento: {item['text']}"
-            for item in context
-        ]
-    )
+            f"Fragmento:\n{text}"
+        )
+
+    context_text = "\n\n".join(context_parts)
+
+    # ========================================================
+    # PROMPT
+    # ========================================================
 
     prompt = f"""
-You are an assistant specialized in analyzing documents.
+You are a document analysis assistant.
 
 Answer the user's question using ONLY the information
-contained in the provided context.
+contained in the provided document fragments.
 
-If the answer cannot be found in the context,
-say that the information is not available in the documents.
+Do not use outside knowledge.
 
-Context:
+Do not invent facts.
+
+If the documents do not contain enough information
+to answer the question, say:
+
+"The information is not available in the provided documents."
+
+Give a concise and factual answer.
+
+At the end, list the documents used as sources.
+
+DOCUMENT CONTEXT:
 {context_text}
 
-Question:
+QUESTION:
 {question}
 
-Answer:
+ANSWER:
 """
 
     messages = [
@@ -54,16 +93,30 @@ Answer:
         }
     ]
 
+    # ========================================================
+    # CHAT TEMPLATE
+    # ========================================================
+
     text = tokenizer.apply_chat_template(
         messages,
         tokenize=False,
         add_generation_prompt=True
     )
 
+    # ========================================================
+    # TOKENIZACIÓN
+    # ========================================================
+
     inputs = tokenizer(
         text,
-        return_tensors="pt"
+        return_tensors="pt",
+        truncation=True,
+        max_length=12000
     )
+
+    # ========================================================
+    # GENERACIÓN
+    # ========================================================
 
     outputs = model.generate(
         **inputs,
@@ -71,7 +124,15 @@ Answer:
         do_sample=False
     )
 
-    generated_tokens = outputs[0][inputs["input_ids"].shape[-1]:]
+    # ========================================================
+    # EXTRAER RESPUESTA
+    # ========================================================
+
+    generated_tokens = outputs[
+        0
+    ][
+        inputs["input_ids"].shape[-1]:
+    ]
 
     response = tokenizer.decode(
         generated_tokens,

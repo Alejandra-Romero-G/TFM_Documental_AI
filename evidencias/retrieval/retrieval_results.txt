@@ -1,0 +1,120 @@
+(env) PS C:\Users\arbol\Desktop\env\TFM_Multimodal_AI> python .\tests\evaluate_retrieval.py
+================================================================================
+EVALUACIÓN DEL RETRIEVAL
+================================================================================
+
+Cargando modelo BGE...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights: 100%|█████████████████| 199/199 [00:00<00:00, 4911.45it/s]
+Modelo cargado.
+
+--------------------------------------------------------------------------------
+PREGUNTA:
+What should an employer do to protect workers from heat stress?
+
+DOCUMENTOS RECUPERADOS:
+1. 000000248_attachment_5.pdf | distancia: 0.4407
+2. 000000717_attachment_5.pdf | distancia: 0.4407
+3. 000000248_attachment_12.pdf | distancia: 0.4544
+4. 000000717_attachment_12.pdf | distancia: 0.4544
+5. 000000248_attachment_7.pdf | distancia: 0.4738
+
+--------------------------------------------------------------------------------
+PREGUNTA:
+What should employers do during a hurricane?
+
+DOCUMENTOS RECUPERADOS:
+1. 000000015_hurricane-playbook.pdf | distancia: 0.5162
+2. 000000019_hurricane-playbook.pdf | distancia: 0.5162
+3. 000000095_hurricane-playbook.pdf | distancia: 0.5162
+4. 000000096_hurricane-playbook.pdf | distancia: 0.5162
+5. 000000473_hurricane-playbook.pdf | distancia: 0.5162
+
+--------------------------------------------------------------------------------
+PREGUNTA:
+How can employers protect temporary workers?
+
+DOCUMENTOS RECUPERADOS:
+1. 000000373_TemporaryWorkersFAQs.pdf | distancia: 0.5629
+2. 000000936_TemporaryWorkersFAQs.pdf | distancia: 0.5629
+3. 000000937_TemporaryWorkersFAQs.pdf | distancia: 0.5629
+4. 000000938_TemporaryWorkersFAQs.pdf | distancia: 0.5629
+5. 000000939_TemporaryWorkersFAQs.pdf | distancia: 0.5629
+
+--------------------------------------------------------------------------------
+PREGUNTA:
+What measures can prevent workplace injuries?
+
+DOCUMENTOS RECUPERADOS:
+1. 000000142_2011-0131-3221.pdf | distancia: 0.5874
+2. 000000151_2011-0131-3221.pdf | distancia: 0.5874
+3. 000000168_2011-0131-3221.pdf | distancia: 0.5874
+4. 000000217_2011-0131-3221.pdf | distancia: 0.5874
+5. 000000578_2011-0131-3221.pdf | distancia: 0.5874
+
+--------------------------------------------------------------------------------
+PREGUNTA:
+What are the responsibilities of employers regarding workplace safety?
+
+DOCUMENTOS RECUPERADOS:
+1. 000000024_mnosha_poster.pdf | distancia: 0.6108
+2. 000000477_mnosha_poster.pdf | distancia: 0.6108
+3. 000000024_shpstreng012000.pdf | distancia: 0.6178
+4. 000000477_shpstreng012000.pdf | distancia: 0.6178
+5. 000000425_CPWR_Safety_Culture_Final_Report_0.pdf | distancia: 0.6280
+
+--------------------------------------------------------------------------------
+PREGUNTA:
+What should workers do during an emergency?
+
+DOCUMENTOS RECUPERADOS:
+1. 000000105_shelterinplace.pdf | distancia: 0.5453
+2. 000000543_shelterinplace.pdf | distancia: 0.5453
+3. 000000425_CPWR_Safety_Culture_Final_Report_0.pdf | distancia: 0.5783
+4. 000000426_CPWR_Safety_Culture_Final_Report_0.pdf | distancia: 0.5783
+5. 000000627_ShakeOutDrillManualBusinesses_v2.pdf | distancia: 0.5860
+
+--------------------------------------------------------------------------------
+PREGUNTA:
+What are the main causes of workplace injuries?
+
+DOCUMENTOS RECUPERADOS:
+1. 000000142_2011-0131-3221.pdf | distancia: 0.6288
+2. 000000151_2011-0131-3221.pdf | distancia: 0.6288
+3. 000000208_2011-0131-3221.pdf | distancia: 0.6288
+4. 000000217_2011-0131-3221.pdf | distancia: 0.6288
+5. 000000578_2011-0131-3221.pdf | distancia: 0.6288
+
+--------------------------------------------------------------------------------
+PREGUNTA:
+What should employers do to prepare for emergencies?
+
+DOCUMENTOS RECUPERADOS:
+1. 000000001_hurricane-playbook.pdf | distancia: 0.5435
+2. 000000015_hurricane-playbook.pdf | distancia: 0.5435
+3. 000000019_hurricane-playbook.pdf | distancia: 0.5435
+4. 000000020_hurricane-playbook.pdf | distancia: 0.5435
+5. 000000095_hurricane-playbook.pdf | distancia: 0.5435
+
+--------------------------------------------------------------------------------
+PREGUNTA:
+What are the rights of workers regarding workplace safety?
+
+DOCUMENTOS RECUPERADOS:
+1. 000000024_mnosha_poster.pdf | distancia: 0.5102
+2. 000000477_mnosha_poster.pdf | distancia: 0.5102
+3. 000000024_1507.pdf | distancia: 0.5188
+4. 000000477_1507.pdf | distancia: 0.5188
+5. 000000024_wps35.pdf | distancia: 0.5218
+
+--------------------------------------------------------------------------------
+PREGUNTA:
+How can employers identify and control workplace hazards?
+
+DOCUMENTOS RECUPERADOS:
+1. 000000425_CPWR_Safety_Culture_Final_Report_0.pdf | distancia: 0.5644
+2. 000000426_CPWR_Safety_Culture_Final_Report_0.pdf | distancia: 0.5644
+3. 000000248_attachment_1.pdf | distancia: 0.5961
+4. 000000717_attachment_1.pdf | distancia: 0.5961
+5. 000000717_attachment_5.pdf | distancia: 0.6048
+(env) PS C:\Users\arbol\Desktop\env\TFM_Multimodal_AI>

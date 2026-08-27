@@ -1,10 +1,25 @@
 from sentence_transformers import SentenceTransformer
 
 
-MODEL_NAME = "all-MiniLM-L6-v2"
+# ============================================================
+# MODELO DE EMBEDDINGS
+# ============================================================
+
+MODEL_NAME = "BAAI/bge-base-en-v1.5"
 
 model = SentenceTransformer(MODEL_NAME)
 
 
+# ============================================================
+# GENERAR EMBEDDING
+# ============================================================
+
 def generate_embedding(text):
-    return model.encode(text)
+    """
+    Genera un embedding normalizado utilizando BGE-base-en-v1.5.
+    """
+
+    return model.encode(
+        text,
+        normalize_embeddings=True
+    )
