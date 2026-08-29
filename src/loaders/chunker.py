@@ -1,21 +1,36 @@
-def split_text(text, chunk_size=800, chunk_overlap=150):
+def split_text(
+    text: str,
+    chunk_size: int = 300,
+    chunk_overlap: int = 50
+) -> list[str]:
     """
-    Divide un texto en fragmentos solapados.
+    Divide un texto en fragmentos de palabras solapados.
 
     Parameters
     ----------
-    text : str
-        Texto completo del documento.
-    chunk_size : int
-        Número aproximado de palabras por fragmento.
-    chunk_overlap : int
-        Número de palabras compartidas entre fragmentos.
+    text:
+        Texto que se dividirá.
+    chunk_size:
+        Número máximo aproximado de palabras por fragmento.
+    chunk_overlap:
+        Número de palabras compartidas entre fragmentos consecutivos.
 
     Returns
     -------
-    list
-        Lista de fragmentos de texto.
+    list[str]
+        Fragmentos de texto.
     """
+
+    if chunk_size <= 0:
+        raise ValueError("chunk_size debe ser mayor que cero.")
+
+    if chunk_overlap < 0:
+        raise ValueError("chunk_overlap no puede ser negativo.")
+
+    if chunk_overlap >= chunk_size:
+        raise ValueError(
+            "chunk_overlap debe ser menor que chunk_size."
+        )
 
     words = text.split()
 
@@ -23,16 +38,15 @@ def split_text(text, chunk_size=800, chunk_overlap=150):
         return []
 
     chunks = []
-
     start = 0
 
     while start < len(words):
 
-        end = start + chunk_size
+        end = min(start + chunk_size, len(words))
 
-        chunk = " ".join(words[start:end])
+        chunk = " ".join(words[start:end]).strip()
 
-        if chunk.strip():
+        if chunk:
             chunks.append(chunk)
 
         if end >= len(words):
