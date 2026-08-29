@@ -11,7 +11,7 @@ from pypdf import PdfReader
 # CONFIGURACIÓN
 # ============================================================
 
-PDF_DIRECTORY = Path("data/documents/osha")
+PDF_DIRECTORY = Path("data/documents")
 REPORTS_DIRECTORY = Path("reports")
 
 REPORTS_DIRECTORY.mkdir(
