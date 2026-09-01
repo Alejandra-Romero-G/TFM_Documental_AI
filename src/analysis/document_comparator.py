@@ -166,7 +166,11 @@ Crea un resumen factual y breve con:
 No compares este documento con ningun otro.
 No utilices conocimiento externo.
 No declares cumplimiento legal.
-Responde completamente en espanol.
+Conserva el idioma principal de las evidencias para evitar
+traducciones tecnicas incorrectas.
+Conserva literalmente los nombres de enfermedades, normas,
+equipos y otros terminos tecnicos.
+No inventes ni sustituyas terminos tecnicos.
 """.strip()
 
     summary = generate_response(
