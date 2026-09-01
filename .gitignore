@@ -4,3 +4,5 @@ data/documents/
 *.pdf
 *.vs
 *.pyc
+data/uploads/
+data/registry/
