@@ -215,3 +215,36 @@ def get_collection_info():
         "count": collection.count(),
         "metadata": collection.metadata
     }
+# ============================================================
+# ELIMINACIÓN POR DOCUMENTO
+# ============================================================
+
+def delete_document_chunks(document_id):
+    """
+    Elimina de ChromaDB todos los chunks de un documento.
+
+    Se utiliza para revertir una indexación incompleta.
+    Devuelve el número aproximado de chunks eliminados.
+    """
+
+    document_id = str(document_id).strip()
+
+    if not document_id:
+        raise ValueError(
+            "El ID documental no puede estar vacío."
+        )
+
+    count_before = collection.count()
+
+    collection.delete(
+        where={
+            "document_id": document_id
+        }
+    )
+
+    count_after = collection.count()
+
+    return max(
+        0,
+        count_before - count_after
+    )
