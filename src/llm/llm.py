@@ -11,11 +11,11 @@ from transformers import (
 # CONFIGURACIÓN
 # ============================================================
 
-MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"
+MODEL_NAME = "Qwen/Qwen2.5-3B-Instruct"
 
 MAX_CHARS_PER_CHUNK = 2500
 MAX_INPUT_TOKENS = 8192
-MAX_NEW_TOKENS = 400
+MAX_NEW_TOKENS = 650
 
 
 # ============================================================
@@ -29,7 +29,9 @@ tokenizer = AutoTokenizer.from_pretrained(
 )
 
 model = AutoModelForCausalLM.from_pretrained(
-    MODEL_NAME
+    MODEL_NAME,
+    torch_dtype="auto",
+    low_cpu_mem_usage=True
 )
 
 model.eval()
