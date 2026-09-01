@@ -1,0 +1,55 @@
+﻿case_id,file_name,document_id,question,expected_abstention,answer_nonempty,source_count,document_isolation,unauthorized_document_ids,valid_source_labels,cited_source_labels,citation_present,citations_valid,invalid_source_labels,matched_concept_groups,total_concept_groups,concept_coverage,abstention_detected,automatic_pass,latency_seconds,answer
+RAG01,2016-106.pdf,32247ef05a6ebfdb,What should employers do to protect workers from occupational heat stress?,0,1,3,1,,[S1]; [S2]; [S3],[S1]; [S2]; [S3],1,1,,3,4,0.75,0,1,121.19903440005146,"ANSWER:
+Employers should provide a heat stress training program that effectively trains all workers and supervisors about the following:
+
+[1] Recognition of the signs and symptoms of the various types of heat-related illnesses and in administration of first aid.
+[1] The causes of heat-related illnesses and the personal care procedures that will minimize the risk of their occurrence, such as drinking enough water and monitoring the color and amount of urine output.
+[1] The proper care and use of heat-protective clothing and equipment and the added heat load caused by exertion, clothing, and personal protective equipment.
+[1] The effects of nonoccupational factors (drugs, alcohol, obesity, etc.) on tolerance to occupational heat stress.
+[1] The importance of acclimatization.
+[1] The importance of immediately reporting to the supervisor any symptoms or signs of heat-related illness in themselves or in their coworkers.
+[1] The employer’s procedures for responding to symptoms of possible heat-related illness and for contacting emergency medical services if needed.
+
+SOURCES USED:
+[S1], [S2], [S3]"
+RAG02,2014-108.pdf,22aa5de8a23caedc,How can roof parapets help prevent falls during construction and maintenance?,0,1,3,1,,[S1]; [S2]; [S3],[S1]; [S2]; [S3],1,1,,3,3,1.0,0,1,137.45579989999533,"ANSWER:
+- Roof parapets can prevent falls from low-sloped roofs during construction and maintenance tasks [S1].
+- Properly designed parapets (39 inches or taller) can eliminate the need for additional fall arrest roof anchors, temporary barricades, or signs during operation and maintenance tasks [S1].
+- Parapets can minimize costs associated with additional fall protection equipment and reduce the risk of falling during servicing and maintenance operations [S2].
+- Parapets can reduce wind flow over the roof, distribute wind uplift resistance evenly, and help prevent rainwater damage on the exterior of buildings [S2].
+- Parapets can serve as a barrier to prevent workers from approaching roof edges too closely, thereby reducing the risk of falls [S1].
+- Parapets can be used as anchorage points for personal fall arrest systems and support for window-washing scaffolds [S3].
+
+SOURCES USED:
+[S1], [S2], [S3]"
+RAG03,OSHA3902.pdf,321c9ea493bd5ad7,What measures should construction employers use to control respirable crystalline silica exposure?,0,1,3,1,,[S1]; [S2]; [S3],[S1]; [S2],1,1,,3,3,1.0,0,1,133.4360464999918,"ANSWER:
+- Employers must avoid certain housekeeping practices such as dry brushing, dry sweeping, and cleaning with compressed air, unless alternative methods like wet sweeping and HEPA-filtered vacuuming are not feasible.
+- Employers are required to use other cleaning methods such as wet sweeping and HEPA-filtered vacuums, whenever feasible, to reduce employee exposures by preventing silica-containing dust from getting into the air.
+- Employers should schedule work so that tasks involving high exposures are performed when no other employees are in the area.
+- Employers should use the hierarchy of controls, prioritizing engineering controls over respirators, due to their reliability, predictability, and consistency in providing protection.
+
+SOURCES USED:
+[S1], [S2]"
+RAG04,99-112.pdf,bb358954ca1bb907,How can workers control chemical hazards when applying artificial fingernails?,0,1,3,1,,[S1]; [S2]; [S3],[S1]; [S2]; [S3],1,1,,3,3,1.0,0,1,125.20019810006488,"ANSWER:
+- Apply artificial fingernails at a ventilated work table [S1].
+- Keep all bottles of fingernail liquid tightly capped [S1].
+- Improve work habits to reduce exposure [S1].
+- Wash hands, arms, and face with mild soap and water several times throughout the day [S2].
+- Wear personal protective clothing and glasses [S2].
+- Remove potentially irritating dust by washing hands, arms, and face [S2].
+- Ban smoking in the entire salon [S2].
+- Avoid eating and drinking where artificial fingernails are applied or in other working areas [S2].
+
+SOURCES USED:
+[S1], [S2], [S3]"
+RAG05,OSHA3151.pdf,4bd6b10448b10e77,How should employers assess hazards and select personal protective equipment?,0,1,3,1,,[S1]; [S2]; [S3],[S1]; [S3],1,1,,3,3,1.0,0,1,100.85818899993319,"ANSWER:
+- Employers should conduct a hazard assessment to identify physical and health hazards in the workplace [S3].
+- After identifying hazards, employers should select appropriate personal protective equipment (PPE) based on the identified hazards [S1].
+
+SOURCES USED:
+- S1, S3"
+RAG06,2010-114.pdf,5d35d093a4c3dbbc,What encryption algorithm and password length does this document require for cybersecurity systems?,1,1,2,1,,[S1]; [S2],[S1],1,1,,0,0,1.0,1,1,65.34633920004126,"ANSWER:
+- This document does not specify any encryption algorithm or password length requirement for cybersecurity systems. [S1]
+
+SOURCES USED:
+- [S1]"
