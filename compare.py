@@ -170,7 +170,8 @@ def markdown_cell(value):
 
 def build_markdown_report(result):
     """
-    Construye el informe Markdown exportable.
+    Construye el informe Markdown exportable
+    eliminando espacios finales.
     """
 
     document_a = result[
@@ -187,6 +188,13 @@ def build_markdown_report(result):
 
     generated_at = datetime.now().astimezone().isoformat(
         timespec="seconds"
+    )
+
+    clean_response = "\n".join(
+        line.rstrip()
+        for line in result[
+            "response"
+        ].splitlines()
     )
 
     lines = [
@@ -215,7 +223,7 @@ def build_markdown_report(result):
         "",
         "## Resultado",
         "",
-        result["response"],
+        clean_response,
         "",
         "## Fuentes recuperadas",
         "",
@@ -223,9 +231,7 @@ def build_markdown_report(result):
             "| Etiqueta | Documento | Archivo | "
             "Página | Chunk | Distancia |"
         ),
-        (
-            "|---|---|---|---:|---:|---:|"
-        )
+        "|---|---|---|---:|---:|---:|"
     ]
 
     for source in result["sources"]:
@@ -268,7 +274,8 @@ def build_markdown_report(result):
     )
 
     return "\n".join(
-        lines
+        line.rstrip()
+        for line in lines
     )
 
 
