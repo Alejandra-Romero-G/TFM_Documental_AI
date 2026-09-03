@@ -29,7 +29,7 @@ El Trabajo Fin de Máster se centra exclusivamente en el análisis documental. E
 |---|---|
 | Auditoría y deduplicación del corpus | Completado |
 | Índice canónico con BGE y ChromaDB | Completado |
-| RAG con citas y aislamiento documental | Completado |
+| RAG con etiquetas de fuente y aislamiento documental | Completado |
 | Comparación semántica de dos documentos | Completado |
 | Preevaluación de cobertura documental | Completado |
 | Ingesta dinámica de PDF | Completado |
@@ -55,7 +55,7 @@ La auditoría produjo los siguientes resultados:
 | Duplicados binarios detectados | 93 |
 | Problemas de extracción o posibles escaneados | 4 |
 | Documentos canónicos utilizables | 78 |
-| Fragmentos indexados con BGE | 5.143 |
+| Fragmentos indexados con BGE | 8.828 |
 
 Los principales artefactos de auditoría son:
 
@@ -110,20 +110,34 @@ La ingesta aplica rollback si falla una operación posterior al copiado o a la i
 - Streamlit para la interfaz de usuario;
 - pandas y scikit-learn como apoyo al análisis y la evaluación.
 
+### Entorno de evaluación
+
+Las evaluaciones finales se ejecutaron localmente con:
+
+- sistema operativo: Windows 10 de 64 bits;
+- Python 3.13.12;
+- procesamiento: CPU, sin CUDA;
+- memoria RAM: aproximadamente 32 GB;
+- modelo de embeddings: `BAAI/bge-base-en-v1.5`;
+- modelo generativo: `Qwen/Qwen2.5-3B-Instruct`.
+
+Los tiempos pueden variar según el procesador, la memoria disponible y el estado de carga del sistema.
+
 ## Estructura principal
 
 ```text
-TFM_Multimodal_AI/
+TFM_Documental_AI/
 ├── app.py
 ├── ask.py
 ├── compare.py
 ├── check_coverage.py
 ├── ingest.py
-├── index_documents.py
 ├── requirements.txt
+├── README.md
 ├── scripts/
 │   ├── audit_corpus.py
 │   └── index_corpus_bge.py
+│
 ├── src/
 │   ├── analysis/
 │   │   ├── analyzer.py
@@ -134,8 +148,9 @@ TFM_Multimodal_AI/
 │   ├── ingestion/
 │   │   └── document_service.py
 │   ├── llm/
-│   │   └── llm_model.py
+│   │   └── llm.py
 │   ├── loaders/
+│   │   ├── __init__.py
 │   │   ├── chunker.py
 │   │   └── pdf_loader.py
 │   ├── registry/
@@ -144,19 +159,28 @@ TFM_Multimodal_AI/
 │   │   └── rag.py
 │   └── vector_db/
 │       └── chroma_db.py
+│
 ├── tests/
+│   ├── evaluate_questions.py
 │   ├── evaluate_retrieval.py
 │   ├── evaluate_rag_grounding.py
 │   └── smoke_test_dynamic_ingestion.py
+│
 ├── reports/
-│   ├── comparisons/
-│   ├── coverage/
-│   └── evaluation/
-└── data/
-    ├── chroma/
-    ├── documents/
-    ├── registry/
-    └── uploads/
+│   ├── evaluation/              # CSV y resúmenes de evaluación
+│   ├── comparisons/             # Informes de comparación
+│   ├── coverage/                # Informes de cobertura
+│   └── canonical_documents.csv  # Manifiesto canónico
+│
+├── docs/                        # Documentación técnica y fuentes
+│
+├── evidencias/                   # Evidencias de fuentes y derechos de uso
+│
+└── data/                         # Datos locales no versionados
+    ├── documents/                # Corpus PDF
+    ├── chroma/                   # Base vectorial
+    ├── registry/                 # Base SQLite
+    └── uploads/                  # PDF incorporados dinámicamente
 ```
 
 Los directorios `data/chroma/`, `data/documents/`, `data/registry/` y `data/uploads/` son persistentes en la ejecución local, pero se excluyen del repositorio.
@@ -166,8 +190,8 @@ Los directorios `data/chroma/`, `data/documents/`, `data/registry/` y `data/uplo
 ### 1. Clonar el repositorio
 
 ```powershell
-git clone URL_DEL_REPOSITORIO
-cd TFM_Multimodal_AI
+git clone https://github.com/Alejandra-Romero-G/TFM_Documental_AI.git
+cd TFM_Documental_AI
 ```
 
 ### 2. Crear y activar un entorno virtual
@@ -182,7 +206,6 @@ env\Scripts\Activate.ps1
 ```powershell
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
-python -m pip install streamlit
 ```
 
 La primera ejecución descarga los modelos desde Hugging Face. El sistema puede funcionar sin autenticación, aunque es recomendable configurar un token para evitar límites de descarga:
@@ -326,8 +349,10 @@ La evaluación incluye cinco preguntas factuales y una pregunta fuera del domini
 | Validez de etiquetas de fuente | 100,00 % |
 | Cobertura conceptual media | 95,00 % |
 | Abstención correcta | 100,00 % |
-| Aceptación automática | 100,00 % |
+| Casos que superaron los criterios automáticos | 100,00 % |
 | Latencia media por caso | 113,92 s |
+
+La cobertura conceptual es una comprobación léxica basada en grupos de términos esperados. La validez de las etiquetas comprueba su presencia y correspondencia con las fuentes recuperadas, pero no verifica automáticamente que cada afirmación esté completamente respaldada. Por ello, los resultados requieren una revisión factual humana.
 
 La latencia refleja la ejecución local en CPU del retrieval y la generación, sin contar la carga inicial de los modelos.
 
@@ -384,6 +409,12 @@ Para reproducir los resultados principales:
 6. registrar las versiones de las dependencias y el hardware empleado;
 7. conservar los CSV e informes de `reports/evaluation/`.
 
+### Obtención del corpus
+
+Los PDF originales no se distribuyen en el repositorio. Las fuentes, metadatos y evidencias de derechos de uso se documentan en `docs/Fuente.md` y `evidencias/02_licencias/`.
+
+Para reproducir exactamente la auditoría deben utilizarse los mismos 173 PDF. Sus nombres, tamaños y hashes SHA-256 están registrados en `reports/corpus_audit.csv`.
+
 ## Conclusión
 
-El prototipo implementa de extremo a extremo la auditoría, indexación, recuperación, generación fundamentada, comparación, cobertura, ingesta dinámica y visualización de documentos. Los resultados muestran un ranking documental sólido y respuestas con aislamiento y trazabilidad de fuentes, manteniendo explícitamente la distinción entre análisis semántico y evaluación legal o normativa.
+El prototipo implementa de extremo a extremo la auditoría, indexación, recuperación, generación condicionada por las evidencias recuperadas, comparación, cobertura, ingesta dinámica y visualización de documentos. Los resultados muestran un ranking documental sólido y respuestas con aislamiento y trazabilidad de fuentes, manteniendo explícitamente la distinción entre análisis semántico y evaluación legal o normativa.
