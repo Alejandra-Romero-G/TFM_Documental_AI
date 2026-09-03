@@ -1,6 +1,5 @@
 import re
 import torch
-import torch
 from transformers import (
     AutoModelForCausalLM,
     AutoTokenizer
@@ -230,7 +229,7 @@ A valid answer must contain at least one source label.
         for source_label in valid_source_labels
     )
 
-    # Qwen 1.5B puede omitir las etiquetas aunque el
+    # El modelo puede omitir las etiquetas aunque el
     # contenido sea correcto. Se añade entonces una lista
     # determinista de las evidencias que recibió.
     if not has_valid_citation:

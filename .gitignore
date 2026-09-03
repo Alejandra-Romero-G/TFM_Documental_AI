@@ -1,8 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Configuración local y secretos
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+
+# Datos locales del proyecto
 data/chroma/
 data/documents/
-*.sqlite3
-*.pdf
-*.vs
-*.pyc
 data/uploads/
 data/registry/
+*.sqlite3
+*.db
+*.pdf
+
+# Sistema operativo y editor
+Thumbs.db
+.DS_Store
+*.vs

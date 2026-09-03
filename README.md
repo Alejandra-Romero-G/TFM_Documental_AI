@@ -114,7 +114,7 @@ La ingesta aplica rollback si falla una operación posterior al copiado o a la i
 
 Las evaluaciones finales se ejecutaron localmente con:
 
-- sistema operativo: Windows 10 de 64 bits;
+- sistema operativo: Microsoft Windows 11 Home, versión 10.0.26200;
 - Python 3.13.12;
 - procesamiento: CPU, sin CUDA;
 - memoria RAM: aproximadamente 32 GB;
@@ -161,7 +161,7 @@ TFM_Documental_AI/
 │       └── chroma_db.py
 │
 ├── tests/
-│   ├── evaluate_questions.py
+│   ├── evaluation_questions.py
 │   ├── evaluate_retrieval.py
 │   ├── evaluate_rag_grounding.py
 │   └── smoke_test_dynamic_ingestion.py

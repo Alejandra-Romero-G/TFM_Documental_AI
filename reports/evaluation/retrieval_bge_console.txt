@@ -96,5 +96,5 @@ Maximum mean Precision@5: 0.2364
 Normalized Precision@5: 1.0000
 Mean Recall@5: 1.0000
 Mean latency: 0.0927 s
-Detailed CSV: C:\Users\arbol\Desktop\env\TFM_Multimodal_AI\reports\evaluation\retrieval_bge_results.csv
-Summary report: C:\Users\arbol\Desktop\env\TFM_Multimodal_AI\reports\evaluation\retrieval_bge_summary.md
+Detailed CSV: reports\evaluation\retrieval_bge_results.csv
+Summary report: reports\evaluation\retrieval_bge_summary.md

@@ -225,9 +225,9 @@ Estos módulos constituyen herramientas de apoyo documental. Sus resultados no d
 - [x] Informes de evaluación conservados en `reports/evaluation/`.
 - [x] Fuentes y derechos documentados.
 - [x] Eliminar o archivar el código preliminar que ya no forma parte del flujo final.
-- [ ] Unificar en todos los documentos la cifra definitiva de chunks.
-- [ ] Regenerar o retirar los ejemplos de comparación y cobertura que contengan salidas anómalas.
-- [ ] Verificar la instalación y el flujo principal después de la limpieza del repositorio.
+- [x] Unificar en todos los documentos la cifra definitiva de chunks.
+- [x] Regenerar o retirar los ejemplos de comparación y cobertura que contengan salidas anómalas.
+- [x] Verificar la instalación y el flujo principal después de la limpieza del repositorio.
 - [ ] Actualizar la memoria técnica con las últimas correcciones.
 - [ ] Actualizar referencias, índice y numeración de la memoria.
 - [ ] Preparar y revisar el vídeo MP4 de un máximo de cinco minutos.
@@ -254,14 +254,15 @@ Estos módulos constituyen herramientas de apoyo documental. Sus resultados no d
 
 - `tests/smoke_test_dynamic_ingestion.py`.
 
-Las pruebas exploratorias de MiniLM y los scripts manuales iniciales pueden eliminarse de la rama final o trasladarse a un directorio histórico claramente identificado. El historial de Git conserva esas versiones.
+Las pruebas exploratorias de MiniLM y los scripts manuales iniciales se eliminaron de la rama final o se trasladaron a un directorio histórico claramente identificado. El historial de Git conserva esas versiones.
 
 ## 9. Entorno de ejecución y reproducibilidad
 
 El desarrollo y las evaluaciones se realizaron en un entorno local con:
 
-- Windows de 64 bits;
+- Microsoft Windows 11 Home, versión 10.0.26200;
 - Python 3.13.12;
+- procesador Intel(R) Core(TM) i7-14650HX;
 - ejecución en CPU, sin CUDA;
 - aproximadamente 32 GB de memoria RAM;
 - dependencias fijadas en `requirements.txt`.

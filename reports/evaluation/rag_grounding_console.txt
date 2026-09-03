@@ -65,5 +65,5 @@ Mean concept coverage: 95.00%
 Abstention success: 100.00%
 Automatic acceptance: 100.00%
 Mean end-to-end latency: 113.92 s
-Detailed CSV: C:\Users\arbol\Desktop\env\TFM_Multimodal_AI\reports\evaluation\rag_grounding_results.csv
-Summary report: C:\Users\arbol\Desktop\env\TFM_Multimodal_AI\reports\evaluation\rag_grounding_summary.md
+Detailed CSV: reports\evaluation\rag_grounding_results.csv
+Summary report: reports\evaluation\rag_grounding_summary.md
